@@ -1,0 +1,20 @@
+Nosotros debemos crear una funcion.
+
+Luego, debemos guardar dentro de una constante la instancia de la clase "HtmlService", luego invocar al metodo "CreateHtmlOutputFromFile", el cual recibe como parametro el nombre del archivo HTML que tengamos en nuestra pila de archivos del proyecto.
+
+Este metodo puede generar otros metodos para modificar la altura y la anchura del modal que emerge, loc ales pueden invocarse con los metodos "setWidth" y "setHeight". Adicionalmente debemos activar el mod sandbox Iframe, ya que esto sera porsion de codigo HTML que nosotros usaremos sobre otro sitio web ya creado.
+
+Esto se hace tambien invocando el metodo "setSandboxMode(HtmlService.SandboxMode.IFRAME)".
+
+Cunado la clase ya se encuentra instanciada y guardada sobre una variable, Llamamos a la clas "DocumentApp", luego al metodo "getUi". con eso onvocamos al metodo "showModalDialog" el cual recibe como primer parametro la instanca del documento HTML y el segundo es el titulo que llevara el modal.
+
+A continuacion un ejemplo:
+
+const mostrarFormulario = () =>{
+  const html = HtmlService.createHtmlOutputFromFile("index.html")
+  .setWidth(1000)
+  .setHeight(400)
+  .setSandboxMode(HtmlService.SandboxMode.IFRAME);
+
+  DocumentApp.getUi().showModalDialog(html,"Formulario personalizado con Google Apps Script");
+};

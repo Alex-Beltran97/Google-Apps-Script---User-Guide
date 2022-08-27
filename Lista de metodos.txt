@@ -1,0 +1,98 @@
+// Como mostrar mensajes en consola
+
+  Logger.log("Hello world");
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como crear un documento
+
+  const doc = DocumentApp.create("Ensayo creacion de archivo");
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como conectarse a un documento existente por medio de un ID
+
+  const doc = DocumentApp.openById("1vUYkHzcZeUrUkOiQXqiTveq5FeyL7MMtv61LeE4km6E");
+
+  El ID se obtiene desde la URL del documento
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como llamar un alert
+
+  DocumentApp.getUi().alert("Soy un alert!!!");
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// como trabajo sobre el documento actual sin llamarlo con un ID o crear un al azar??
+
+  DocumentApp.getActiveDocument();
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// getBody
+
+  Metodo que se usa para acceder o modificar las propiedades del documento
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Agregar un parrafo sin sobreescribir el documento
+
+  doc.getBody().appendParagraph("Parrafo creado");
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como enviar un texto que sobreescriba el contenido de un documento / Limpiar documento
+
+
+  const doc = DocumentApp.getActiveDocument();
+  
+  doc.getBody().setText("Aqui va el titulo del documento");
+
+  - Limpiar:
+
+  doc.getBody().setText("");
+
+  ó
+
+  doc.getBody().clear();
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como obtener todos los parrafos de un documento
+
+const parrafos = doc.getBody().getParagraphs();
+
+Esto devuleve un array el cual se puede iterar. Tambien podemos acceder a cada uno de estos por medio de su index. Cada parrafo cuenta como un salto de linea con Enter, asi no alla nada en ese indice dentro del documento.
+
+
+const parrafos = doc.getBody().getParagraphs();
+  // parrafos[0].setText("Nuevo parrafo modificado");
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como alinear parrafos
+
+  parrafos[0].setLeftToRight(true);
+
+El metodo se llama asi pero dependiendo al vuleano ovedece en funsion de su nombre. Es decir si el titulo del metodo se llama "de derecha a izquierda" y esta en true, conservara su forma, de lo controario se alineara a su forma contraria.
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como obtener el texto de un parrafo 
+
+  parrafos[0].getText()
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+// Como obtener los espaciados que existen despues de cada parrafo
+
+  parrafos[2].getSpacingAfter()
+
+  si queremos agregarselos lo hacemos asi 
+
+  parrafos[2].setSpacingAfter(10);
+
+

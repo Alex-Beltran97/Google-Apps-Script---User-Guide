@@ -1,0 +1,61 @@
+Nosotros podemos usar HTML CSS y JS para poder crear formularios que funcionen sobre las apps de google.
+
+Nosotros solamente necesitamos hacer invocacion de las funciones que tenemos en nuestros archivos ".gs".
+
+los scripts que nosotros usamos son:
+
+google.script.run.FUNCTION_NAME;
+
+y si queremos que el modal en el que se ejecuta el archivo HTML se cuierre usamos:
+
+google.script.host.close();.
+
+A continuacin un ejemplo de esto:
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <form class="container my-4" id="form">
+      <label class="form-label" for="cantidad">introduce la cantidad de parrafos a intriducir</label>
+      <input type="number" id="cantidad" class="form-control" name="cantidad">
+      <label class="form-label" for="cantidad">introduce el color del documento:</label>
+      <input type="color" id="color" class="form-control w-25" name="color">
+      <label class="form-label" for="frase">Introduce una fecha:</label>
+      <input type="date" id="date" class="form-control" name="date">
+      <label class="form-label" for="frase">Introduce el contenido de los parrafos</label>
+      <input type="text" id="frase" class="form-control" name="frase">
+      <button type="submit" class="btn btn-primary my-4" id="btn">Crear parrafos</button>
+    </form>
+    <!-- scripts -->
+    <script>
+      const form = document.getElementById("form");
+
+      function sendValues (e){
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        const cantidad = formData.get("cantidad");
+        const frase = formData.get("frase");
+        const color = formData.get("color");
+        const date = formData.get("date");
+        
+        google.script.run.crearParrafos(frase,cantidad,color,date);
+        google.script.host.close();
+        this.reset();
+      };        
+
+      form.addEventListener("submit",sendValues);
+      
+    </script>
+  </body>
+</html>

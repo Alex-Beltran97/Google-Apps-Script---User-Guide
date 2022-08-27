@@ -1,0 +1,25 @@
+Nosotros podemos acceder a los atributos del documento y modificarlos de muchas maneras:
+
+Debemos llamar a la clase DocumentApp.atribute y el nombre.
+Si nosotros guardamos estos atributos dentro de una constante que alamcena a un objeto, podemos crear u staqck de estilos para customiar una propiedad.
+
+A continuacion un ejemplo.
+
+const estilo1 = {};
+
+estilo1[DocumentApp.Attribute.BACKGROUND_COLOR] = "#3137cf";
+estilo1[DocumentApp.Attribute.FONT_SIZE] = 24;
+
+// Para modificar un parrafo y aplicarle estos atributos debemos llamar al metodo de cada parrafo con setAttribue y como parametro pasamos los estilos
+parrafos[0].setAttributes(estilo1);
+
+No es necesario llamar asi a los objetos, nosotros tambien podriamos pasar los atributos directamente. Lo hariamos de la siguiente manera.
+
+  parrafos[1].setAttributes({
+    BACKGROUND_COLOR:"#50ca3e",
+    FOREGROUND_COLOR:"#ffffff",
+    BOLD:true,
+    FONT_SIZE:22
+  });
+
+

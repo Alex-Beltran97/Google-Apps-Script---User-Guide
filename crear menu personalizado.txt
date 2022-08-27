@@ -1,0 +1,21 @@
+podemos llamar una funcion la cual por convension se suele llamar "onOpen".
+
+De ahi nosotros vamos a crear el menu que se va a renderizar usando la clase "DocumentApp" y luego llamando al metodo "getUi".
+Posteriormente llamamos al metodos "Create Menu" el cual va a a llevar el titulo de la opcion en donde desplegaremos el menu en la UI del ddocumento de google.
+
+Luego agregaremos los nombre de las opciones dentro del menu con el metodo "addItem" (Podemos agregar las opciones que nosotros necesitemos sin porblema).
+
+los parametros que recibe addItem son: El nombre del item dentro del menu, y el nombre de la funcion que vamos a invocar.
+
+Por ultimo, nosotros podemos llamar al metodo "addToUi" para terminar de agregar las opciones.
+
+Acontinuacion, un ejemplo de lo anteriormente mencionado.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const onOpen = () =>{
+  DocumentApp.getUi().createMenu("Aditional Options")
+  .addItem("Mostrar formulario","mostrarFormulario")
+  .addToUi();
+};
+

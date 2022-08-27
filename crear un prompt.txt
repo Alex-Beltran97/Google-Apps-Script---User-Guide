@@ -1,0 +1,14 @@
+// Como llamar un prompt
+
+  const ui = DocumentApp.getUi()
+
+  const window = ui.prompt("Ventana emergente","Indica el contenido de los parrafos que quieres agregar",ui.ButtonSet.OK_CANCEL);
+
+  const btn = window.getSelectedButton();
+  const text = window.getResponseText();
+
+  if(btn == ui.Button.OK){
+    function_name(whatever);
+  }else if(btn == ui.Button.CANCEL){
+    ui.alert("whatever message error ");
+  }
